@@ -1,0 +1,58 @@
+* {
+    margin: 0 auto;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.main-wrapper {
+    text-align: center;
+    margin: 5% 25%;
+    border-radius: .25rem;
+    border-radius: 25px;
+    background: #f6f6f6;
+    box-shadow:  20px 20px 60px #bebebe,
+                 -20px -20px 60px #c1d4e8;
+
+}
+
+/* Heading Selectors */
+
+.main-wrapper header h1 {
+    font-size: 4rem;
+    font-family: Shantell Sans;
+    color: #70D6FF;
+
+}
+
+.main-wrapper header h2 {
+    font-size: 1.5rem;
+    font-family: Shantell Sans;
+    color: #ffba70;
+}
+
+/* Form Selectors */
+
+.input-wrapper {
+    padding: 5% 0;
+    z-index: 1;
+}
+
+.list-wrapper {
+    padding: 5% 5%;
+    z-index: 2;
+}
+
+.list-item {
+    width: 15rem;
+    height: 5rem;
+    margin: 0 auto;
+    color: #191a1c73;
+    font-family: Mukta;
+    outline: 2px solid #aaaaaa8c;
+    z-index: 3;
+    border-radius: 2px;
+    
+}
