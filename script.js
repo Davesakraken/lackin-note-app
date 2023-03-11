@@ -20,4 +20,15 @@ function newListItem () {
   let childParagraph = document.createElement("p")
   
   newDiv.classList.add("list-item");
-}
+
+  //checks for user text input in textBox
+  if (textBox.value) {
+    childParagraph.textContent = `${mainListChildren.length + 1}. ${textBox.value}`;
+    listWrapper.appendChild(newDiv);
+    newDiv.appendChild(childParagraph)
+  };
+
+  textBox.value = "";
+
+  popUpConfirmationBox()
+};
