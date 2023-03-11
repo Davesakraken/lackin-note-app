@@ -30,5 +30,4 @@ function newListItem () {
 
   textBox.value = "";
 
-  popUpConfirmationBox()
 };
