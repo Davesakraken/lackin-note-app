@@ -13,6 +13,7 @@
         rel="stylesheet">
     <!-- styles -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="animations.css">
     <title>Lackin</title>
 </head>
 
@@ -20,14 +21,14 @@
     <section class="main-wrapper">
         <header>
             <h1>Lackin</h1>
-            <h2>no bs list app</h2>
+            <h2>list maker</h2>
         </header>
        
         <div class="input-wrapper">
-            <input id = "text-field" type="text">
-            <button id="add-button">Add</button>
+            <input class = "text-field" type="text">
+            <button class ="add-button">+ <a href="#" data-tool-tip="Note Added ✨"></a></button>
 
-            <div class="list-wrapper">
+            <div class="list-wrapper flex-parent">
             </div>
         </div>
     </section>

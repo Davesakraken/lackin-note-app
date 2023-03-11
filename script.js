@@ -1,32 +1,23 @@
 //Global Vars
-const addButton = document.getElementById("add-button");
-const textField = document.getElementById("text-field");
+const header = document.querySelector('header')
+const addButton = document.querySelector(".add-button");
+const textBox = document.querySelector(".text-field");
+const listWrapper = document.querySelector(".list-wrapper");
 
 const mainList = document.querySelector(".list-wrapper");
 const mainListChildren = mainList.getElementsByTagName('div');
 
 //Listeners
-addButton.addEventListener("click", newListItemGenerator);
-textField.addEventListener("keydown", function (event) {
-  if (event.key === 'Enter') {newListItemGenerator()} 
+addButton.addEventListener("click", newListItem);
+textBox.addEventListener("keydown", function (event) {
+  if (event.key === 'Enter') {newListItem()} 
   });
 
 //core app functionality 
-function newListItemGenerator () {
+function newListItem () {
 
   let newDiv = document.createElement("div");
-  let newParagraph = document.createElement("p")
-  let list = document.querySelector(".list-wrapper");
+  let childParagraph = document.createElement("p")
   
-   let content = newParagraph.textContent = textField.value
-
   newDiv.classList.add("list-item");
 
-  //checks for user text input in textField
-  if (textField.value) {
-    newDiv.textContent = `${mainListChildren.length + 1}. ${content}`;
-    list.append(newDiv);
-  }
-
-  textField.value = "";
-}
