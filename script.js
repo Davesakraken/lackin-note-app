@@ -20,4 +20,4 @@ function newListItem () {
   let childParagraph = document.createElement("p")
   
   newDiv.classList.add("list-item");
-
+}
