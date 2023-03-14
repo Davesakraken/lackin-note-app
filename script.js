@@ -1,33 +1,41 @@
-//Global Vars
-const header = document.querySelector('header')
+//input selectors
 const addButton = document.querySelector(".add-button");
 const textBox = document.querySelector(".text-field");
-const listWrapper = document.querySelector(".list-wrapper");
 
-const mainList = document.querySelector(".list-wrapper");
-const mainListChildren = mainList.getElementsByTagName('div');
+//list selectors
+const listWrapper = document.querySelector(".list-container");
+const mainList = document.querySelector(".list-container");
+const mainListChildren = mainList.getElementsByTagName("div");
 
 //Listeners
 addButton.addEventListener("click", newListItem);
 textBox.addEventListener("keydown", function (event) {
-  if (event.key === 'Enter') {newListItem()} 
-  });
+  if (event.key === "Enter") {
+    newListItem();
+  }
+});
 
-//core app functionality 
-function newListItem () {
+/*Creates a new list item by creating a div and appending the innerHTML with a template literal. 
+conditional will check if there is content within the text box and append the listWrapper*/
+function newListItem() {
+  const element = `
+  <div class="item-menu">
+    <button class="menu-button delete-button"><span class="material-symbols-outlined"> close </span>
+      </button>
+    <button class="menu-button edit-button"><span class="material-symbols-outlined"> menu </span>
+      </button>
+  </div>
+  <div class="list-content">
+    <p>${mainListChildren.length}. ${textBox.value}</p>
+  </div>`;
 
-  let newDiv = document.createElement("div");
-  let childParagraph = document.createElement("p")
-  
-  newDiv.classList.add("list-item");
+  let listItem = document.createElement("div");
+  listItem.classList.add("list-item");
+  listItem.innerHTML = element;
 
-  //checks for user text input in textBox
   if (textBox.value) {
-    childParagraph.textContent = `${mainListChildren.length + 1}. ${textBox.value}`;
-    listWrapper.appendChild(newDiv);
-    newDiv.appendChild(childParagraph)
-  };
+    listWrapper.appendChild(listItem);
+  }
 
   textBox.value = "";
-
-};
+}

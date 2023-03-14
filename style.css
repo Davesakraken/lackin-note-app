@@ -6,15 +6,30 @@
 }
 
 html {
-    font-size: 62.5%
+    font-size: 62.5%;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Mukta, Arial, Helvetica, sans-serif;
     text-align: center;
 }
 
 button {
+    font-weight: ;
+}
+
+button:hover {
+    cursor: pointer;
+    animation-duration: 250ms;
+    animation-name: scale-animation;
+}
+
+button:active {
+    cursor: pointer;
+    transform: scale(0.9);
+}
+
+.add-button {
     color: #303a49;
     width: 5rem;
     height: 5rem;
@@ -25,19 +40,14 @@ button {
     transition: all 0.1s;
 }
 
-button:hover {
+.add-button:hover {
     background-color: #49c0ef;
     border: 0.26rem solid #49c0ef;
-    cursor: pointer;
-    animation-duration: 250ms;
-    animation-name: scale-animation;
 }
 
-button:active {
-    transform: scale(0.9);
+.add-button:active {
     background-color: #49c0ef;
     border: 0.26rem solid #49c0ef;
-    cursor: pointer;
     animation-duration: 250ms;
     animation-name: wobble-animation;
 }
@@ -55,7 +65,7 @@ button:active {
     outline: 0.26rem solid #ffba70ba;
 }
 
-.main-wrapper {
+.main-container {
     margin: 1% 5%;
     border-radius: .25rem;
     border-radius: 25px;
@@ -66,39 +76,80 @@ button:active {
 }
 
 /* Form Selectors */
-.list-wrapper {
+.list-container {
     padding: 10% 5%;
 }
 
 .list-item {
-    min-width: 20%;
-    padding: 2%;
+    display: flex;
+}
+
+.item-menu {
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transition: opacity 400ms ease 0s;
+    margin-right: 0.5rem;
+}
+
+.menu-button {
+    width: 3rem;
+    border-radius: 3px;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+    border: 0;
+    box-shadow: 1px 1px 3px rgba(68, 68, 68, 0.496);
+}
+
+.delete-button {
+    background-color: #ff404c;
+    margin-bottom: 0.1rem;
+}
+
+.material-symbols-outlined {
+    padding-top:0.4rem;
+    padding-left:0.1rem;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 600,
+  'GRAD' 0,
+  'opsz' 48
+}
+
+.list-content {
+    height: 7rem;
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
     color: #101010a5;
-    border: 0.26rem solid #2faeee;
-    border-radius: 0.50rem;
+    border: 0.2rem solid #3f93ed;
+    border-radius: 0.5rem;
     overflow: auto;
+}
+
+div.list-item:hover div.item-menu {
+    opacity: 1;
 }
 
 /* Heading Selectors */
 
-.main-wrapper header {
+.main-container header {
     text-shadow: 2px 2px 1px rgba(69, 105, 123, 0.768);
     font-family: Shantell Sans;
     animation: bounce-animation 1.5s cubic-bezier(0.64, 0, 0.78, 0) 0s 1 normal none;
 }
 
-.main-wrapper header h1 {
+.main-container header h1 {
     font-size: 12rem;
     color: #70D6FF;
 }
 
-.main-wrapper header h2 {
+.main-container header h2 {
     font-size: 6rem;
     color: #ffba70;
     margin: -3rem 1rem 3rem;
 }
 
-/* flex module */
+/* Flex Box */
 
 .flex-parent {
     display: flex;
@@ -106,4 +157,12 @@ button:active {
     justify-content: center;
     align-items: baseline;
     gap: 2em;
+}
+
+/* Media Queries */
+
+@media screen and (max-device-width: 500px) {
+    .main-container header h1 {
+        font-size: 9rem;
+    }
 }
