@@ -1,3 +1,5 @@
+/* top level selectors and resets */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,10 +16,39 @@ body {
     text-align: center;
 }
 
-button {
-    font-weight: ;
+/* outter most container */
+.main-container {
+    margin: 1% 5%;
+    border-radius: .25rem;
+    border-radius: 25px;
+    background: #f6f6f6;
+    box-shadow: 20px 20px 60px #bebebe,
+        -20px -20px 60px #c1d4e8;
+
 }
 
+/* Heading Selectors */
+
+.main-container header {
+    text-shadow: 2px 2px 1px rgba(69, 105, 123, 0.768);
+    font-family: Shantell Sans;
+    
+}
+
+.main-container header h1 {
+    font-size: 12rem;
+    color: #70D6FF;
+    animation: bounce-animation 1.5s cubic-bezier(0.64, 0, 0.78, 0) 0s 1 normal none;
+}
+
+.main-container header h2 {
+    font-size: 6rem;
+    color: #ffba70;
+    margin: -3rem 1rem 3rem;
+    animation: opacity-animation 1.5s ease 0s 1 normal none;
+}
+
+/* button selectors */
 button:hover {
     cursor: pointer;
     animation-duration: 250ms;
@@ -52,6 +83,8 @@ button:active {
     animation-name: wobble-animation;
 }
 
+/* user input text field selectors */
+
 .text-field {
     width: 100%;
     max-width: 60%;
@@ -65,17 +98,7 @@ button:active {
     outline: 0.26rem solid #ffba70ba;
 }
 
-.main-container {
-    margin: 1% 5%;
-    border-radius: .25rem;
-    border-radius: 25px;
-    background: #f6f6f6;
-    box-shadow: 20px 20px 60px #bebebe,
-        -20px -20px 60px #c1d4e8;
-
-}
-
-/* Form Selectors */
+/* list item Selectors */
 .list-container {
     padding: 10% 5%;
 }
@@ -116,37 +139,22 @@ button:active {
 }
 
 .list-content {
-    height: 7rem;
-    margin: auto;
-    padding: 1rem;
+    max-width: 20rem;
+    max-height: 20rem;
+    min-width: 17rem;
+    min-height: 15rem;
+    padding: 1.5rem;
     text-align: center;
     color: #101010a5;
-    border: 0.2rem solid #3f93ed;
+    background-color: #fbc892;
+    box-shadow: 3px 4px rgba(109, 159, 202, 0.579);
     border-radius: 0.5rem;
     overflow: auto;
+    transition: ease-in-out 300ms;
 }
 
 div.list-item:hover div.item-menu {
     opacity: 1;
-}
-
-/* Heading Selectors */
-
-.main-container header {
-    text-shadow: 2px 2px 1px rgba(69, 105, 123, 0.768);
-    font-family: Shantell Sans;
-    animation: bounce-animation 1.5s cubic-bezier(0.64, 0, 0.78, 0) 0s 1 normal none;
-}
-
-.main-container header h1 {
-    font-size: 12rem;
-    color: #70D6FF;
-}
-
-.main-container header h2 {
-    font-size: 6rem;
-    color: #ffba70;
-    margin: -3rem 1rem 3rem;
 }
 
 /* Flex Box */
@@ -166,3 +174,25 @@ div.list-item:hover div.item-menu {
         font-size: 9rem;
     }
 }
+
+/* Scroll bar pseudo selectors */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+    visibility: hidden;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(87, 95, 106, 0.686);
+    border-radius: 10px;
+    visibility: hidden;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(123, 123, 123, 0.592);
+    border-radius: 25px;
+
+  }
