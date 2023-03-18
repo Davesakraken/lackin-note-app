@@ -45,7 +45,7 @@ body {
     font-size: 6rem;
     color: #ffba70;
     margin: -3rem 1rem 3rem;
-    animation: opacity-animation 1.5s ease 0s 1 normal none;
+    animation: fade-in 1.5s ease 0s 1 normal none;
 }
 
 /* button selectors */
@@ -64,7 +64,6 @@ button:active {
     color: #303a49;
     width: 5rem;
     height: 5rem;
-    padding: 0.6rem;
     border-radius: 0.26rem;
     background-color: #ffba70;
     border: 0.26rem solid #ffba70;
@@ -77,9 +76,7 @@ button:active {
 }
 
 .add-button:active {
-    background-color: #49c0ef;
-    border: 0.26rem solid #49c0ef;
-    animation-duration: 250ms;
+    animation-duration: 500ms;
     animation-name: wobble-animation;
 }
 
