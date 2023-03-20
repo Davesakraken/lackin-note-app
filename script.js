@@ -6,6 +6,8 @@ const textBox = document.querySelector(".text-field");
 const listWrapper = document.querySelector(".list-container");
 const mainList = document.querySelector(".list-container");
 
+
+
 //Listeners
 addButton.addEventListener("click", newListItem);
 textBox.addEventListener("keydown", function (event) {
@@ -25,7 +27,7 @@ function newListItem() {
   <div class="item-menu">
     <button class="menu-button delete-button" id="DB-${uniqueIdentifier}"><span class="material-symbols-outlined"> close </span>
       </button>
-    <button class="menu-button edit-button" id="MB-${uniqueIdentifier}"><span class="material-symbols-outlined"> menu </span>
+    <button class="menu-button edit-button" id="EB-${uniqueIdentifier}"><span class="material-symbols-outlined"> menu </span>
       </button>
   </div>
   <div class="list-content">
@@ -43,13 +45,33 @@ function newListItem() {
 
     //delete button functionality
     const deleteButton = document.querySelector(`#DB-${uniqueIdentifier}`);
+
     deleteButton.addEventListener("click", function () {
-      listItem.classList.add("scale-out-center")
+      listItem.classList.add("scale-out-center");
       setTimeout(function () {
         listItem.remove();
       }, 1000);
     });
-  }
 
+    //Edit Button Functionality
+    const editButton = document.querySelector(`#EB-${uniqueIdentifier}`);
+
+    editButton.addEventListener("click", function () {
+      const listItemContent = document.querySelector(".list-content");
+      const inputElement = document.createElement("input");
+
+      inputElement.value = listItemContent.textContent;
+      inputElement.classList.add("text-field");
+
+      listItemContent.parentNode.replaceChild(inputElement, listItemContent);
+
+      inputElement.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          listItemContent.textContent = inputElement.value
+          inputElement.parentNode.replaceChild(listItemContent, inputElement);
+        }
+      });
+    });
+  }
   textBox.value = "";
 }
