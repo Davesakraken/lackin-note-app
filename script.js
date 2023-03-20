@@ -6,8 +6,6 @@ const textBox = document.querySelector(".text-field");
 const listWrapper = document.querySelector(".list-container");
 const mainList = document.querySelector(".list-container");
 
-
-
 //Listeners
 addButton.addEventListener("click", newListItem);
 textBox.addEventListener("keydown", function (event) {
@@ -19,7 +17,6 @@ textBox.addEventListener("keydown", function (event) {
 /*Creates a new list item by creating a div and appending the innerHTML with a template literal. 
 conditional will check if there is content within the text box and append the listWrapper*/
 function newListItem() {
-
   const d = crypto.randomUUID().split("-").splice(0, 3).join("");
   const uniqueIdentifier = d.valueOf();
 
@@ -57,9 +54,8 @@ function newListItem() {
     const editButton = document.querySelector(`#EB-${uniqueIdentifier}`);
 
     editButton.addEventListener("click", function () {
-      const listItemContent = document.querySelector(".list-content");
+      const listItemContent = listItem.querySelector(".list-content");
       const inputElement = document.createElement("input");
-
       inputElement.value = listItemContent.textContent;
       inputElement.classList.add("text-field");
 
@@ -67,7 +63,7 @@ function newListItem() {
 
       inputElement.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
-          listItemContent.textContent = inputElement.value
+          listItemContent.textContent = inputElement.value;
           inputElement.parentNode.replaceChild(listItemContent, inputElement);
         }
       });
