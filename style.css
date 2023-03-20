@@ -13,10 +13,13 @@ html {
 }
 
 header {
+    margin: auto;
+    padding-top: 2rem;
     font-family: Shantell Sans;
 }
 
 h1 {
+    user-select: none;
     font-size: 12rem;
     color: #70D6FF;
     animation: bounce-animation 1.5s cubic-bezier(0.64, 0, 0.78, 0) 0s 1 normal none;
@@ -29,6 +32,17 @@ h2 {
     margin: -3rem 1rem 3rem;
     animation: fade-in 1.5s ease 0s 1 normal none;
     text-shadow: 2px 1px 2px rgba(45, 45, 45, 0.639);
+    user-select: none;
+}
+
+img {
+    width: 9rem;
+    animation: none;
+    translate: 20rem -24rem;
+    rotate: -3deg;
+    animation-delay: 500ms;
+    animation: 3s ease-in 1s 2 reverse both paused slidein;
+    position: absolute;
 }
 
 input {
@@ -168,9 +182,13 @@ div.list-item:hover div.item-menu {
     gap: 2em;
 }
 
+.flex-child {
+    flex: 100%;
+}
+
 /* Media Queries */
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 670px) {
     h1 {
         font-size: 7rem;
     }
@@ -178,6 +196,16 @@ div.list-item:hover div.item-menu {
     h2 {
         font-size: 4rem;
         padding-top: 1rem;
+    }
+    img {
+        width: 5rem;
+        translate: 12rem -15.5rem;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    img {
+        display: none;
     }
 }
 
