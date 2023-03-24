@@ -28,7 +28,7 @@ h1 {
 
 h2 {
     font-size: 6rem;
-    color: #ffba70;
+    color: #fccd56;
     margin: -3rem 1rem 3rem;
     animation: fade-in 1.5s ease 0s 1 normal none;
     text-shadow: 2px 1px 2px rgba(45, 45, 45, 0.639);
@@ -40,9 +40,10 @@ img {
     animation: none;
     translate: 20rem -24rem;
     rotate: -3deg;
-    animation-delay: 500ms;
-    animation: 3s ease-in 1s 2 reverse both paused slidein;
     position: absolute;
+    -webkit-user-drag: none;
+    opacity: 0;
+    animation: fade-in 1.5s ease 2s 1 normal forwards;
 }
 
 input {
@@ -51,6 +52,7 @@ input {
 
 /* Outter Container */
 .main-container {
+    min-height: 65rem;
     margin: 1% 5%;
     border-radius: 3rem;
     background: #f6f6f6;
@@ -68,7 +70,8 @@ input {
 }
 
 .text-field {
-    font-size: 1.7rem;
+    font-size: 2.5rem;
+    color: #707070;
     width: 100%;
     max-width: 60%;
     border: 0.26rem solid #49c0ef;
@@ -84,8 +87,8 @@ input {
     width: 4rem;
     font-size: 0;
     border-radius: 0.26rem;
-    background-color: #ffba70;
-    border: 0.26rem solid #ffba70;
+    background-color: #fccd56;;
+    border: 0.26rem solid #fccd56;;
     transition: all 0.1s;
 }
 

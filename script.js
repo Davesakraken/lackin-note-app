@@ -3,22 +3,39 @@ const addButton = document.querySelector(".add-button");
 const textBox = document.querySelector(".text-field");
 
 //list selectors
-const listWrapper = document.querySelector(".list-container");
-const mainList = document.querySelector(".list-container");
+const ListContainer = document.querySelector(".list-container");
 
 //Listeners
-addButton.addEventListener("click", newListItem);
+addButton.addEventListener("click", () => newListItem());
 textBox.addEventListener("keydown", function (event) {
   if (event.key === "Enter") {
     newListItem();
   }
 });
 
+//localStorage
+let noteArr = [];
+
+function noteLocalStorage () {
+  const notes = localStorage.getItem("notes")
+  let parseNotes = JSON.parse(notes)
+
+  for (let i = 0; i < parseNotes.length; i++) {
+    newListItem(parseNotes[i].id, parseNotes[i].note)
+  }
+
+} 
+
+window.addEventListener('load', noteLocalStorage)
+
 /*Creates a new list item by creating a div and appending the innerHTML with a template literal. 
 conditional will check if there is content within the text box and append the listWrapper*/
-function newListItem() {
-  const d = crypto.randomUUID().split("-").splice(0, 3).join("");
-  const uniqueIdentifier = d.valueOf();
+function newListItem(id, note) {
+
+  const uniqueIdentifier = id || crypto.randomUUID().split("-").splice(0, 3).join("");
+  const noteContent = note || textBox.value;
+
+  console.log(uniqueIdentifier)
 
   const element = `
   <div class="item-menu">
@@ -28,7 +45,7 @@ function newListItem() {
       </button>
   </div>
   <div class="list-content">
-    <p>${textBox.value}</p>
+    <p>${noteContent}</p>
   </div>`;
 
   const listItem = document.createElement("div");
@@ -37,8 +54,10 @@ function newListItem() {
   listItem.id = uniqueIdentifier;
   listItem.innerHTML = element;
 
-  if (textBox.value) {
-    listWrapper.appendChild(listItem);
+  if (noteContent) {
+    ListContainer.appendChild(listItem);
+    noteArr.push({id: uniqueIdentifier, note: noteContent});
+    localStorage.setItem("notes", JSON.stringify(noteArr));
 
     //delete button functionality
     const deleteButton = document.querySelector(`#DB-${uniqueIdentifier}`);
@@ -47,7 +66,7 @@ function newListItem() {
       listItem.classList.add("scale-out-center");
       setTimeout(function () {
         listItem.remove();
-      }, 1000);
+      }, 400);
     });
 
     //Edit Button Functionality
