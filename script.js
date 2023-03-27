@@ -13,29 +13,27 @@ textBox.addEventListener("keydown", function (event) {
   }
 });
 
+// ------------------------------------------------------------------------
 //localStorage
 let noteArr = [];
 
-function noteLocalStorage () {
-  const notes = localStorage.getItem("notes")
-  let parseNotes = JSON.parse(notes)
+function noteLocalStorage() {
+  const notes = localStorage.getItem("notes");
+  let parseNotes = JSON.parse(notes);
 
   for (let i = 0; i < parseNotes.length; i++) {
-    newListItem(parseNotes[i].id, parseNotes[i].note)
+    newListItem(parseNotes[i].id, parseNotes[i].note);
   }
+}
 
-} 
+window.addEventListener("load", noteLocalStorage);
 
-window.addEventListener('load', noteLocalStorage)
-
-/*Creates a new list item by creating a div and appending the innerHTML with a template literal. 
-conditional will check if there is content within the text box and append the listWrapper*/
+// ------------------------------------------------------------------------
+// App functionality
 function newListItem(id, note) {
-
+  // Unique ID generator
   const uniqueIdentifier = id || crypto.randomUUID().split("-").splice(0, 3).join("");
   const noteContent = note || textBox.value;
-
-  console.log(uniqueIdentifier)
 
   const element = `
   <div class="item-menu">
@@ -45,43 +43,58 @@ function newListItem(id, note) {
       </button>
   </div>
   <div class="list-content">
-    <p>${noteContent}</p>
+    ${noteContent}
   </div>`;
 
+  //listItem creation
   const listItem = document.createElement("div");
-
   listItem.classList.add("list-item");
   listItem.id = uniqueIdentifier;
   listItem.innerHTML = element;
 
+  //conditional check for text content within a note
   if (noteContent) {
     ListContainer.appendChild(listItem);
-    noteArr.push({id: uniqueIdentifier, note: noteContent});
+    noteArr.push({ id: uniqueIdentifier, note: noteContent });
     localStorage.setItem("notes", JSON.stringify(noteArr));
+    // ------------------------------------------------------------------------
 
-    //delete button functionality
+    const noteIndex = noteArr.findIndex((obj) => obj.id === uniqueIdentifier);
+
+    //Delete button functionality
     const deleteButton = document.querySelector(`#DB-${uniqueIdentifier}`);
 
     deleteButton.addEventListener("click", function () {
+      //Delete Local Storage update
+      noteArr.splice(noteIndex, 1);
+      localStorage.setItem("notes", JSON.stringify(noteArr));
+
+      // Delete Animation
       listItem.classList.add("scale-out-center");
       setTimeout(function () {
         listItem.remove();
       }, 400);
     });
-
+    // ------------------------------------------------------------------------
     //Edit Button Functionality
     const editButton = document.querySelector(`#EB-${uniqueIdentifier}`);
 
     editButton.addEventListener("click", function () {
       const listItemContent = listItem.querySelector(".list-content");
       const inputElement = document.createElement("input");
-      inputElement.value = listItemContent.textContent;
+      inputElement.value = listItemContent.innerText;
       inputElement.classList.add("text-field");
 
       listItemContent.parentNode.replaceChild(inputElement, listItemContent);
 
       inputElement.addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
+          console.log("inputElement.value:", inputElement.value);
+          console.log("listItemContent.textContent:", listItemContent.textContent);
+
+          noteArr[noteIndex].note = inputElement.value;
+          localStorage.setItem("notes", JSON.stringify(noteArr));
+
           listItemContent.textContent = inputElement.value;
           inputElement.parentNode.replaceChild(listItemContent, inputElement);
         }

@@ -5,33 +5,31 @@
 }
 
 html {
-    box-sizing: border-box;
+    font-family: 'Hind Madurai', sans-serif;
     font-size: 62.5%;
-    font-family: Mukta, Arial, Helvetica, sans-serif;
     text-align: center;
     color: #4f4f4f;
 }
 
 header {
     margin: auto;
-    padding-top: 2rem;
-    font-family: Shantell Sans;
+    padding-top: 4rem;
 }
 
 h1 {
+    font-family: 'Montserrat', sans-serif;
     user-select: none;
     font-size: 12rem;
-    color: #70D6FF;
+    color: #2e9eca;
     animation: bounce-animation 1.5s cubic-bezier(0.64, 0, 0.78, 0) 0s 1 normal none;
-    text-shadow: 2px 1px 2px rgba(45, 45, 45, 0.639);
 }
 
 h2 {
+    font-family: 'Shantell Sans';
     font-size: 6rem;
-    color: #fccd56;
+    color: #f7c444;
     margin: -3rem 1rem 3rem;
     animation: fade-in 1.5s ease 0s 1 normal none;
-    text-shadow: 2px 1px 2px rgba(45, 45, 45, 0.639);
     user-select: none;
 }
 
@@ -43,7 +41,11 @@ img {
     position: absolute;
     -webkit-user-drag: none;
     opacity: 0;
-    animation: fade-in 1.5s ease 2s 1 normal forwards;
+    transition: transform 0.5s cubic-bezier(.42, 0, .58, 1);
+}
+
+img:hover {
+    transform: scale(1.1);
 }
 
 input {
@@ -87,8 +89,8 @@ input {
     width: 4rem;
     font-size: 0;
     border-radius: 0.26rem;
-    background-color: #fccd56;;
-    border: 0.26rem solid #fccd56;;
+    background-color: #fdd266;
+    border: 0.26rem solid #fdd266;
     transition: all 0.1s;
 }
 
@@ -120,8 +122,8 @@ button:active {
 }
 
 .list-item {
-    font-size: 2rem;
     display: flex;
+    font-size: 2rem;
 }
 
 .list-content {
@@ -131,7 +133,7 @@ button:active {
     min-height: 15rem;
     padding: 1.5rem;
     text-align: center;
-    background-color: #fbc892;
+    background-color: #ffdc83;
     box-shadow: 3px 4px rgba(109, 159, 202, 0.579);
     border-radius: 0.5rem;
     overflow: auto;
@@ -153,7 +155,6 @@ button:active {
     padding-left: 0.1rem;
     width: 3rem;
     border-radius: 3px;
-    animation: myAnim 2s ease 0s 1 normal forwards;
     border: 0;
     box-shadow: 1px 1px 3px rgba(68, 68, 68, 0.496);
 }
@@ -200,6 +201,7 @@ div.list-item:hover div.item-menu {
         font-size: 4rem;
         padding-top: 1rem;
     }
+
     img {
         width: 5rem;
         translate: 12rem -15.5rem;
@@ -231,5 +233,4 @@ div.list-item:hover div.item-menu {
 ::-webkit-scrollbar-thumb {
     background: rgba(123, 123, 123, 0.592);
     border-radius: 25px;
-
 }
