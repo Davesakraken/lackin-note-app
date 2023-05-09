@@ -54,12 +54,12 @@ input {
 
 /* Outter Container */
 .main-container {
-    min-height: 65rem;
+    min-height: 90rem;
     margin: 1% 5%;
-    border-radius: 3rem;
-    background: #f6f6f6;
-    box-shadow: 20px 20px 60px #bebebe,
-        -20px -20px 60px #c1d4e8;
+    border-radius: 1rem;
+    background: #ffffff;
+    box-shadow: 5px 5px 10px #f0ecce,
+        -5px -5px 10px #c1d4e8;
 }
 
 /* Input section selectors */
@@ -127,10 +127,10 @@ button:active {
 }
 
 .list-content {
-    max-width: 20rem;
-    max-height: 20rem;
+    max-width: 24rem;
+    max-height: 30rem;
     min-width: 17rem;
-    min-height: 15rem;
+    min-height: 17rem;
     padding: 1.5rem;
     text-align: center;
     background-color: #ffdc83;

@@ -30,6 +30,7 @@ window.addEventListener("load", noteLocalStorage);
 
 // ------------------------------------------------------------------------
 // App functionality
+
 function newListItem(id, note) {
   // Unique ID generator
   const uniqueIdentifier = id || crypto.randomUUID().split("-").splice(0, 3).join("");
