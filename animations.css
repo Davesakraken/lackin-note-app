@@ -16,7 +16,7 @@
 	0% {
 		animation-timing-function: ease-in;
 		opacity: 0.20;
-		transform: translateY(-45px);
+		transform: translateY(-35px);
 	}
 
 	30% {
@@ -25,7 +25,7 @@
 
 	40% {
 		animation-timing-function: ease-in;
-		transform: translateY(-24px);
+		transform: translateY(-14px);
 	}
 
 	65% {
@@ -59,8 +59,9 @@
 }
 
 .fade-in {
-	-webkit-animation: fade-in 1.5s ease 2s 1 normal forwards; ;
-	animation: fade-in 1.5s ease 2s 1 normal forwards;
+	-webkit-animation: fade-in 1.2s ease 2s 1 normal forwards;
+	;
+	animation: fade-in 1.2s ease 2s 1 normal forwards;
 }
 
 @keyframes fade-in {
@@ -87,29 +88,33 @@
 /* ------------------- */
 .scale-out-center {
 	-webkit-animation: scale-out-center 0.4s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-	        animation: scale-out-center 0.4s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+	animation: scale-out-center 0.4s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
 }
- @-webkit-keyframes scale-out-center {
+
+@-webkit-keyframes scale-out-center {
 	0% {
-	  -webkit-transform: scale(1);
-			  transform: scale(1);
-	  opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 1;
 	}
+
 	100% {
-	  -webkit-transform: scale(0);
-			  transform: scale(0);
-	  opacity: 1;
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 1;
 	}
 }
-  @keyframes scale-out-center {
+
+@keyframes scale-out-center {
 	0% {
-	  -webkit-transform: scale(1);
-			  transform: scale(1);
-	  opacity: 1;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		opacity: 1;
 	}
+
 	100% {
-	  -webkit-transform: scale(0);
-			  transform: scale(0);
-	  opacity: 1;
+		-webkit-transform: scale(0);
+		transform: scale(0);
+		opacity: 1;
 	}
 }
